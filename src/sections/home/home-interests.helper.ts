@@ -58,12 +58,13 @@ export const renderInterestsText = (): string => {
       item.key === 'training' ||
       item.key === 'anime' ||
       item.key === 'mma' ||
+      item.key === 'dance' ||
       item.key === 'music' ||
       item.key === 'gaming'
     ) {
       text = text.replace(
         token,
-        `<button class="interest-inline" type="button" data-interest="${item.key}">${item.label}</button>`,
+        `<button class="interest-inline" type="button" data-interest="${item.key}" data-href="${item.href ?? ''}">${item.label}</button>`,
       );
 
       return;

@@ -56,6 +56,20 @@ export const setupExpandableBlocks = (): void => {
         window.dispatchEvent(event);
       }
 
+      if (interest === 'dance') {
+        const href = btn.dataset.href;
+
+        if (!href) {
+          return;
+        }
+
+        const event = new CustomEvent('show-dance-popup', {
+          detail: { href },
+        });
+
+        window.dispatchEvent(event);
+      }
+
       if (interest === 'music') {
         const event = new CustomEvent('show-music-popup');
         window.dispatchEvent(event);

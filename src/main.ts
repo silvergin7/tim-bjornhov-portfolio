@@ -17,6 +17,7 @@ import {
   setupMusicModal,
   setupMusicPlayer,
   setupGamingModal,
+  setupDanceModal,
 } from '@/app/events';
 import { createExternalLinkModal } from '@/components/modals/external-link.modal';
 import { createTrainingModal } from '@/components/modals/training.modal';
@@ -25,6 +26,7 @@ import { createMmaModal } from '@/components/modals/mma.modal';
 import { createMusicModal } from '@/components/modals/music.modal';
 import { createMusicPlayer } from '@/components/player/music-player.component';
 import { createGamingModal } from '@/components/modals/gaming.modal';
+import { createDanceModal } from '@/components/modals/dance.modal';
 
 const app = document.querySelector('#app') as HTMLDivElement;
 const languageService = new LanguageService('en');
@@ -44,6 +46,7 @@ const initApp = (): void => {
   ${createMusicModal()}
   ${createMusicPlayer()}
   ${createGamingModal()}
+  ${createDanceModal()}
 `;
 
   setupMenuEvents();
@@ -55,6 +58,7 @@ const initApp = (): void => {
   setupMusicModal();
   setupMusicPlayer();
   setupGamingModal();
+  setupDanceModal();
 };
 
 document.addEventListener('DOMContentLoaded', initApp);

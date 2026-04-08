@@ -226,6 +226,7 @@
 .training-modal,
 .anime-modal,
 .mma-modal,
+.dance-modal,
 .music-modal,
 .gaming-modal {
   position: fixed;
@@ -236,6 +237,7 @@
 .training-modal[hidden],
 .anime-modal[hidden],
 .mma-modal[hidden],
+.dance-modal[hidden],
 .music-modal[hidden],
 .gaming-modal[hidden] {
   display: none;
@@ -244,6 +246,7 @@
 .training-modal__backdrop,
 .anime-modal__backdrop,
 .mma-modal__backdrop,
+.dance-modal__backdrop,
 .music-modal__backdrop,
 .gaming-modal__backdrop {
   position: absolute;
@@ -293,16 +296,17 @@
 .training-modal__content,
 .anime-modal__content,
 .mma-modal__content,
+.dance-modal__content,
 .music-modal__content,
 .gaming-modal__content {
   position: relative;
   padding: var(--space-4);
-  padding-bottom: calc(var(--space-4) + 2rem);
 }
 
 .training-modal__dialog,
 .anime-modal__dialog,
 .mma-modal__dialog,
+.dance-modal__dialog,
 .music-modal__dialog,
 .gaming-modal__dialog {
   position: fixed;
@@ -321,6 +325,7 @@
 .training-modal__eyebrow,
 .anime-modal__eyebrow,
 .mma-modal__eyebrow,
+.dance-modal__eyebrow,
 .music-modal__eyebrow,
 .gaming-modal__eyebrow {
   margin: 0 0 var(--space-2);
@@ -333,6 +338,7 @@
 .training-modal__title,
 .anime-modal__title,
 .mma-modal__title,
+.dance-modal__title,
 .music-modal__title,
 .gaming-modal__title {
   margin: 0 0 var(--space-3);
@@ -343,7 +349,8 @@
 .anime-modal__text,
 .mma-modal__text,
 .music-modal__text,
-.gaming-modal__text {
+.gaming-modal__text,
+.dance-modal__text {
   margin: 0;
   color: var(--color-text-muted);
   line-height: 1.6;
@@ -352,6 +359,7 @@
 .training-modal__media,
 .anime-modal__media,
 .mma-modal__media,
+.dance-modal__media,
 .music-modal__media,
 .gaming-modal__media {
   position: relative;
@@ -365,7 +373,8 @@
 .anime-modal__image,
 .mma-modal__image,
 .music-modal__image,
-.gaming-modal__image {
+.gaming-modal__image,
+.dance-modal__image {
   display: block;
   width: 100%;
   height: 100%;
@@ -431,4 +440,33 @@
 .music-player__volume {
   width: 2.75rem;
   accent-color: var(--color-accent);
+}
+
+.dance-modal__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+
+.dance-modal__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0 1rem;
+  border-radius: var(--radius-pill);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.dance-modal__button--ghost {
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text);
+}
+
+.dance-modal__button--primary {
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
 }
