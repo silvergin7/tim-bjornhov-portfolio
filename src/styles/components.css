@@ -257,16 +257,37 @@
 .music-modal__close,
 .gaming-modal__close {
   position: absolute;
-  top: var(--space-3);
   right: var(--space-3);
-  width: 2.5rem;
-  height: 2.5rem;
+  bottom: var(--space-3);
+  width: 1.25rem;
+  height: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border-radius: var(--radius-pill);
-  background: rgba(17, 17, 17, 0.06);
-  color: var(--color-text);
-  font-size: 1rem;
+  background: rgba(17, 17, 17, 0.78);
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 700;
   line-height: 1;
-  z-index: 2;
+  z-index: 5;
+  box-shadow: var(--shadow-soft);
+}
+
+.training-modal__close:hover,
+.anime-modal__close:hover,
+.mma-modal__close:hover,
+.music-modal__close:hover,
+.gaming-modal__close:hover {
+  background: rgba(17, 17, 17, 0.92);
+}
+
+.training-modal__close:active,
+.anime-modal__close:active,
+.mma-modal__close:active,
+.music-modal__close:active,
+.gaming-modal__close:active {
+  transform: scale(0.96);
 }
 
 .training-modal__content,
@@ -274,7 +295,9 @@
 .mma-modal__content,
 .music-modal__content,
 .gaming-modal__content {
-  padding: var(--space-5);
+  position: relative;
+  padding: var(--space-4);
+  padding-bottom: calc(var(--space-4) + 2rem);
 }
 
 .training-modal__dialog,

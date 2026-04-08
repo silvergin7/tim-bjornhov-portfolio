@@ -1,7 +1,7 @@
 export const createMusicModal = (): string => {
   return `
     <div class="music-modal" data-music-modal hidden>
-      <div class="music-modal__backdrop" data-music-close></div>
+      <div class="music-modal__backdrop"></div>
 
       <div
         class="music-modal__dialog"
@@ -12,7 +12,7 @@ export const createMusicModal = (): string => {
         <button
           type="button"
           class="music-modal__close"
-          aria-label="Close music dialog"
+          aria-label="Close music popup"
           data-music-close
         >
           ✕
@@ -20,10 +20,10 @@ export const createMusicModal = (): string => {
 
         <div class="music-modal__media">
           <img
-  class="music-modal__image"
-  src="/images/moment-of-truth.jpg"
-  alt="Moment of Truth cover"
- />
+            class="music-modal__image"
+            src="/images/moment-of-truth.jpg"
+            alt="Moment of Truth cover"
+          />
 
           <button
             type="button"
