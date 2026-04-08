@@ -18,28 +18,28 @@ type InterestLink = {
 const interestLinks: InterestLink[] = [
   {
     key: 'training',
-    label: 'training',
+    label: 'training,',
   },
   {
     key: 'mma',
-    label: 'MMA',
+    label: 'MMA,',
   },
   {
     key: 'anime',
-    label: 'anime',
+    label: 'anime,',
   },
   {
     key: 'dance',
-    label: 'dance',
+    label: 'dance,',
     href: 'https://www.youtube.com/@metalspalace/',
   },
   {
     key: 'music',
-    label: 'music',
+    label: 'music,',
   },
   {
     key: 'gaming',
-    label: 'gaming',
+    label: 'gaming,',
   },
   {
     key: 'food',

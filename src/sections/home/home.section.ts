@@ -9,6 +9,14 @@ export const createHomeSection = (): string => {
         <p class="home-section__role">${profile.role}</p>
         <h1 class="home-section__title">${profile.name}</h1>
 
+        <figure class="home-section__portrait">
+          <img
+            class="home-section__portrait-image"
+            src="/images/jag.jpg"
+            alt="Portrait of Tim Björnhov"
+          />
+        </figure>
+
         <div class="home-section__block" data-expandable>
           <p class="home-section__intro">
             ${profile.introShort}
@@ -30,8 +38,8 @@ export const createHomeSection = (): string => {
             ${profile.interestsShort}
           </p>
           <p class="home-section__extra" data-extra="interests">
-  ${renderInterestsText()}
-</p>
+            ${renderInterestsText()}
+          </p>
           <button
             class="home-section__toggle"
             type="button"

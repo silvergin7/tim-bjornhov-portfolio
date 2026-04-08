@@ -10,5 +10,5 @@ export const profile: Profile = {
   interestsShort:
     'Outside of coding, I am deeply interested in blockchain. Before deciding to study it formally, I spent several years working independently from home in the crypto space, where it was also my source of income.',
   interestsLong:
-    'My other passions include {{training}}, {{mma}}, {{anime}}, {{dance}}, {{music}}, {{gaming}}, and {{food}} from all over the world.',
+    'My other passions include {{training}} {{mma}} {{anime}} {{dance}} {{music}} {{gaming}} and {{food}} from all over the world.',
 };
