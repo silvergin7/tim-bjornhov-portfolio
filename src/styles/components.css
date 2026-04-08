@@ -228,6 +228,7 @@
 .mma-modal,
 .dance-modal,
 .music-modal,
+.food-modal,
 .gaming-modal {
   position: fixed;
   inset: 0;
@@ -239,6 +240,7 @@
 .mma-modal[hidden],
 .dance-modal[hidden],
 .music-modal[hidden],
+.food-modal[hidden],
 .gaming-modal[hidden] {
   display: none;
 }
@@ -248,6 +250,7 @@
 .mma-modal__backdrop,
 .dance-modal__backdrop,
 .music-modal__backdrop,
+.food-modal__backdrop,
 .gaming-modal__backdrop {
   position: absolute;
   inset: 0;
@@ -298,7 +301,8 @@
 .mma-modal__content,
 .dance-modal__content,
 .music-modal__content,
-.gaming-modal__content {
+.gaming-modal__content,
+.food-modal__content {
   position: relative;
   padding: var(--space-4);
 }
@@ -308,7 +312,8 @@
 .mma-modal__dialog,
 .dance-modal__dialog,
 .music-modal__dialog,
-.gaming-modal__dialog {
+.gaming-modal__dialog,
+.food-modal__dialog {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -327,7 +332,8 @@
 .mma-modal__eyebrow,
 .dance-modal__eyebrow,
 .music-modal__eyebrow,
-.gaming-modal__eyebrow {
+.gaming-modal__eyebrow,
+.food-modal__eyebrow {
   margin: 0 0 var(--space-2);
   font-size: var(--text-xs);
   text-transform: uppercase;
@@ -340,7 +346,8 @@
 .mma-modal__title,
 .dance-modal__title,
 .music-modal__title,
-.gaming-modal__title {
+.gaming-modal__title,
+.food-modal__title {
   margin: 0 0 var(--space-3);
   font-size: var(--text-xl);
 }
@@ -350,7 +357,8 @@
 .mma-modal__text,
 .music-modal__text,
 .gaming-modal__text,
-.dance-modal__text {
+.dance-modal__text,
+.food-modal__text {
   margin: 0;
   color: var(--color-text-muted);
   line-height: 1.6;
@@ -361,7 +369,8 @@
 .mma-modal__media,
 .dance-modal__media,
 .music-modal__media,
-.gaming-modal__media {
+.gaming-modal__media,
+.food-modal__media {
   position: relative;
   height: 14rem;
   overflow: hidden;
@@ -374,7 +383,8 @@
 .mma-modal__image,
 .music-modal__image,
 .gaming-modal__image,
-.dance-modal__image {
+.dance-modal__image,
+.food-modal__image {
   display: block;
   width: 100%;
   height: 100%;
@@ -467,6 +477,35 @@
 }
 
 .dance-modal__button--primary {
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
+}
+
+.food-modal__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+
+.food-modal__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0 1rem;
+  border-radius: var(--radius-pill);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.food-modal__button--ghost {
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text);
+}
+
+.food-modal__button--primary {
   background: var(--color-accent);
   color: var(--color-text-inverse);
 }

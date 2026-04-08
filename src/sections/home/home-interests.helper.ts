@@ -60,7 +60,8 @@ export const renderInterestsText = (): string => {
       item.key === 'mma' ||
       item.key === 'dance' ||
       item.key === 'music' ||
-      item.key === 'gaming'
+      item.key === 'gaming' ||
+      item.key === 'food'
     ) {
       text = text.replace(
         token,

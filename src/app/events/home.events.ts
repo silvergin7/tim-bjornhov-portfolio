@@ -79,6 +79,20 @@ export const setupExpandableBlocks = (): void => {
         const event = new CustomEvent('show-gaming-popup');
         window.dispatchEvent(event);
       }
+
+      if (interest === 'food') {
+        const href = btn.dataset.href;
+
+        if (!href) {
+          return;
+        }
+
+        const event = new CustomEvent('show-food-popup', {
+          detail: { href },
+        });
+
+        window.dispatchEvent(event);
+      }
     });
   });
 };

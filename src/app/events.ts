@@ -8,3 +8,4 @@ export { setupMusicModal } from '@/app/events/music-modal.events';
 export { setupMusicPlayer } from '@/app/events/music-player.events';
 export { setupGamingModal } from '@/app/events/gaming-modal.events';
 export { setupDanceModal } from '@/app/events/dance-modal.events';
+export { setupFoodModal } from '@/app/events/food-modal.events';
