@@ -1,0 +1,18 @@
+{
+  "name": "tim-bjornhov-portfolio",
+  "version": "1.0.0",
+  "description": "Personal portfolio website built with TypeScript and Vite",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5"
+  }
+}

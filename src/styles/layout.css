@@ -1,0 +1,24 @@
+.site-main {
+  width: 100%;
+  max-width: 100%;
+  padding: var(--space-8) var(--space-4);
+}
+
+.page-section {
+  min-height: calc(100dvh - 72px);
+  display: flex;
+  align-items: center;
+}
+
+.page-section__inner {
+  width: 100%;
+  max-width: 100%;
+}
+
+.eyebrow {
+  margin: 0 0 var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
