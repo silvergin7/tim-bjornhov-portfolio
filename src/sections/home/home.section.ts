@@ -1,11 +1,14 @@
-import { profile } from '@/data/profile.data';
+import { getProfile } from '@/data/profile.data';
+import { languageService } from '@/services/language.instance';
 import { renderInterestsText } from './home-interests.helper';
 
 export const createHomeSection = (): string => {
+  const profile = getProfile();
+
   return `
     <section id="home" class="page-section home-section">
       <div class="page-section__inner home-section__inner">
-        <p class="eyebrow">Home</p>
+        <p class="eyebrow">${languageService.getText('homeEyebrow')}</p>
         <p class="home-section__role">${profile.role}</p>
         <h1 class="home-section__title">${profile.name}</h1>
 
@@ -29,7 +32,7 @@ export const createHomeSection = (): string => {
             type="button"
             data-toggle="intro"
           >
-            Show more
+            ${languageService.getText('showMore')}
           </button>
         </div>
 
@@ -45,7 +48,7 @@ export const createHomeSection = (): string => {
             type="button"
             data-toggle="interests"
           >
-            Show more
+            ${languageService.getText('showMore')}
           </button>
         </div>
       </div>

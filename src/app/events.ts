@@ -1,11 +1,5 @@
 export { setupMenuEvents } from '@/app/events/menu.events';
 export { setupExpandableBlocks } from '@/app/events/home.events';
 export { setupExternalLinkModal } from '@/app/events/external-link.events';
-export { setupTrainingModal } from '@/app/events/training-modal.events';
-export { setupAnimeModal } from '@/app/events/anime-modal.events';
-export { setupMmaModal } from '@/app/events/mma-modal.events';
-export { setupMusicModal } from '@/app/events/music-modal.events';
+export { setupInterestModals } from '@/app/events/modal.events';
 export { setupMusicPlayer } from '@/app/events/music-player.events';
-export { setupGamingModal } from '@/app/events/gaming-modal.events';
-export { setupDanceModal } from '@/app/events/dance-modal.events';
-export { setupFoodModal } from '@/app/events/food-modal.events';

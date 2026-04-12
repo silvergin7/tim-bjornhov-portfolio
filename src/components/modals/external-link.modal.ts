@@ -1,3 +1,5 @@
+import { languageService } from '@/services/language.instance';
+
 export const createExternalLinkModal = (): string => `
   <div class="external-link-modal" data-external-modal hidden>
     <div class="external-link-modal__backdrop" data-external-close></div>
@@ -8,12 +10,14 @@ export const createExternalLinkModal = (): string => `
       aria-modal="true"
       aria-labelledby="external-link-title"
     >
-      <p class="external-link-modal__eyebrow">External link</p>
+      <p class="external-link-modal__eyebrow">
+        ${languageService.getText('externalLinkEyebrow')}
+      </p>
       <h2 id="external-link-title" class="external-link-modal__title">
-        Leaving portfolio
+        ${languageService.getText('externalLinkTitle')}
       </h2>
       <p class="external-link-modal__text">
-        This link will open outside of my portfolio site.
+        ${languageService.getText('externalLinkText')}
       </p>
 
       <div class="external-link-modal__actions">
@@ -22,7 +26,7 @@ export const createExternalLinkModal = (): string => `
           class="external-link-modal__button external-link-modal__button--ghost"
           data-external-close
         >
-          Stay here
+          ${languageService.getText('stayHere')}
         </button>
 
         <a
@@ -32,7 +36,7 @@ export const createExternalLinkModal = (): string => `
           target="_blank"
           rel="noopener noreferrer"
         >
-          Continue
+          ${languageService.getText('continue')}
         </a>
       </div>
     </div>

@@ -2,67 +2,66 @@ import '@/styles/variables.css';
 import '@/styles/base.css';
 import '@/styles/layout.css';
 import '@/styles/components.css';
+import '@/styles/modals.css';
 import '@/styles/sections.css';
 
-import LanguageService from '@/services/language.service';
+import { languageService } from '@/services/language.instance';
 import { createHeader } from '@/components/header/header.component';
 import { createHomeSection } from '@/sections/home/home.section';
+import { createWorkSection } from '@/sections/work/work.section';
+import { createSkillsSection } from '@/sections/skills/skills.section';
+import { createContactSection } from '@/sections/contact/contact.section';
+import { createExternalLinkModal } from '@/components/modals/external-link.modal';
+import { createAllModals } from '@/components/modals/modal.component';
+import { createMusicPlayer } from '@/components/player/music-player.component';
+import { modalConfigs } from '@/data/modals.data';
 import {
   setupMenuEvents,
   setupExpandableBlocks,
   setupExternalLinkModal,
-  setupTrainingModal,
-  setupAnimeModal,
-  setupMmaModal,
-  setupMusicModal,
+  setupInterestModals,
   setupMusicPlayer,
-  setupGamingModal,
-  setupDanceModal,
-  setupFoodModal,
 } from '@/app/events';
-import { createExternalLinkModal } from '@/components/modals/external-link.modal';
-import { createTrainingModal } from '@/components/modals/training.modal';
-import { createAnimeModal } from '@/components/modals/anime.modal';
-import { createMmaModal } from '@/components/modals/mma.modal';
-import { createMusicModal } from '@/components/modals/music.modal';
-import { createMusicPlayer } from '@/components/player/music-player.component';
-import { createGamingModal } from '@/components/modals/gaming.modal';
-import { createDanceModal } from '@/components/modals/dance.modal';
-import { createFoodModal } from '@/components/modals/food.modal';
 
 const app = document.querySelector('#app') as HTMLDivElement;
-const languageService = new LanguageService('en');
 
-const initApp = (): void => {
+const renderApp = (): void => {
   document.title = languageService.getText('siteTitle');
 
   app.innerHTML = `
-  ${createHeader()}
-  <main class="site-main">
-    ${createHomeSection()}
-  </main>
-  ${createExternalLinkModal()}
-  ${createTrainingModal()}
-  ${createAnimeModal()}
-  ${createMmaModal()}
-  ${createMusicModal()}
-  ${createMusicPlayer()}
-  ${createGamingModal()}
-  ${createDanceModal()}
-  ${createFoodModal()}
-`;
+    ${createHeader()}
+    <main class="site-main">
+      ${createHomeSection()}
+      ${createWorkSection()}
+      ${createSkillsSection()}
+      ${createContactSection()}
+    </main>
+    ${createExternalLinkModal()}
+    ${createAllModals(modalConfigs)}
+    ${createMusicPlayer()}
+  `;
 
   setupMenuEvents();
   setupExpandableBlocks();
   setupExternalLinkModal();
-  setupTrainingModal();
-  setupAnimeModal();
-  setupMmaModal();
-  setupMusicModal();
+  setupInterestModals();
   setupMusicPlayer();
-  setupGamingModal();
-  setupDanceModal();
-  setupFoodModal();
+};
+
+const setupLanguageToggle = (): void => {
+  const btn = document.querySelector('[data-lang-toggle]');
+  if (!btn) return;
+
+  btn.addEventListener('click', () => {
+    languageService.toggleLanguage();
+    renderApp();
+    setupLanguageToggle();
+  });
+};
+
+const initApp = (): void => {
+  renderApp();
+  setupLanguageToggle();
 };
 
 document.addEventListener('DOMContentLoaded', initApp);

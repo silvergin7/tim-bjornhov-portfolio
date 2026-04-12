@@ -1,7 +1,7 @@
-import { navigationLinks } from '@/data/navigation.data';
+import { getNavigationLinks } from '@/data/navigation.data';
 
 export const createNavigation = (): string => {
-  const linksMarkup = navigationLinks
+  const linksMarkup = getNavigationLinks()
     .map((link) => {
       return `
         <li class="mobile-nav__item">

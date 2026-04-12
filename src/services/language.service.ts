@@ -5,8 +5,11 @@ import type {
   TranslationSet,
 } from '@/models/translation';
 
+type LanguageChangeCallback = (language: Language) => void;
+
 export default class LanguageService {
   private currentLanguage: Language;
+  private listeners: LanguageChangeCallback[] = [];
 
   constructor(defaultLanguage: Language = 'en') {
     this.currentLanguage = defaultLanguage;
@@ -18,7 +21,12 @@ export default class LanguageService {
 
   public toggleLanguage(): Language {
     this.currentLanguage = this.currentLanguage === 'en' ? 'sv' : 'en';
+    this.listeners.forEach((cb) => cb(this.currentLanguage));
     return this.currentLanguage;
+  }
+
+  public onChange(callback: LanguageChangeCallback): void {
+    this.listeners.push(callback);
   }
 
   public getTranslations(): TranslationSet {

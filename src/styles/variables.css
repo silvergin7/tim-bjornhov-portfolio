@@ -7,6 +7,15 @@
   --color-text-muted: #5f5f5f;
   --color-text-inverse: #f5f5f5;
   --color-accent: #1d8f7a;
+  --color-accent-hover: #156a5b;
+
+  --color-header-bg: rgba(244, 241, 234, 0.88);
+  --color-toggle-bg: rgba(17, 17, 17, 0.08);
+  --color-toggle-line: var(--color-text);
+  --color-overlay: rgba(0, 0, 0, 0.36);
+  --color-overlay-strong: rgba(0, 0, 0, 0.62);
+  --color-btn-subtle: rgba(17, 17, 17, 0.02);
+  --color-btn-subtle-hover: rgba(17, 17, 17, 0.05);
 
   --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.08);
 
@@ -34,4 +43,28 @@
   --text-lg: 1.125rem;
   --text-xl: 1.5rem;
   --text-2xl: 2rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #0f0f0f;
+    --color-surface: #1a1a1a;
+    --color-surface-strong: #f5f5f5;
+    --color-border: rgba(255, 255, 255, 0.1);
+    --color-text: #e8e8e8;
+    --color-text-muted: #999999;
+    --color-text-inverse: #111111;
+    --color-accent: #2ecbaa;
+    --color-accent-hover: #5dddc4;
+
+    --color-header-bg: rgba(15, 15, 15, 0.88);
+    --color-toggle-bg: rgba(255, 255, 255, 0.1);
+    --color-toggle-line: var(--color-text);
+    --color-overlay: rgba(0, 0, 0, 0.5);
+    --color-overlay-strong: rgba(0, 0, 0, 0.72);
+    --color-btn-subtle: rgba(255, 255, 255, 0.04);
+    --color-btn-subtle-hover: rgba(255, 255, 255, 0.08);
+
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
 }

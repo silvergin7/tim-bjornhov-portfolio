@@ -4,7 +4,7 @@
   z-index: 20;
   width: 100%;
   max-width: 100%;
-  background: rgba(244, 241, 234, 0.88);
+  background: var(--color-header-bg);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--color-border);
 }
@@ -58,11 +58,32 @@
   stroke-linejoin: round;
 }
 
+.site-header__actions {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.site-header__lang-toggle {
+  padding: 0.3rem 0.6rem;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  background: transparent;
+}
+
+.site-header__lang-toggle:hover {
+  background: var(--color-btn-subtle-hover);
+}
+
 .site-header__menu-toggle {
   width: 2.75rem;
   height: 2.75rem;
   border-radius: var(--radius-md);
-  background: rgba(17, 17, 17, 0.08);
+  background: var(--color-toggle-bg);
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
@@ -75,7 +96,7 @@
   width: 100%;
   height: 2px;
   border-radius: var(--radius-pill);
-  background: var(--color-text);
+  background: var(--color-toggle-line);
 }
 
 .mobile-menu {
@@ -84,7 +105,7 @@
   z-index: 30;
   display: flex;
   justify-content: flex-end;
-  background: rgba(0, 0, 0, 0.36);
+  background: var(--color-overlay);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.25s ease;
@@ -157,7 +178,7 @@
 .external-link-modal__backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45);
+  background: var(--color-overlay);
 }
 
 .external-link-modal__dialog {
@@ -223,189 +244,41 @@
   color: var(--color-text-inverse);
 }
 
-.training-modal,
-.anime-modal,
-.mma-modal,
-.dance-modal,
-.music-modal,
-.food-modal,
-.gaming-modal {
-  position: fixed;
-  inset: 0;
-  z-index: 70;
-}
-
-.training-modal[hidden],
-.anime-modal[hidden],
-.mma-modal[hidden],
-.dance-modal[hidden],
-.music-modal[hidden],
-.food-modal[hidden],
-.gaming-modal[hidden] {
+.desktop-nav {
   display: none;
 }
 
-.training-modal__backdrop,
-.anime-modal__backdrop,
-.mma-modal__backdrop,
-.dance-modal__backdrop,
-.music-modal__backdrop,
-.food-modal__backdrop,
-.gaming-modal__backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.62);
+.desktop-nav__link {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  transition: color 0.15s ease;
 }
 
-.training-modal__close,
-.anime-modal__close,
-.mma-modal__close,
-.music-modal__close,
-.gaming-modal__close {
-  position: absolute;
-  right: var(--space-3);
-  bottom: var(--space-3);
-  width: 1.25rem;
-  height: 1.25rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius-pill);
-  background: rgba(17, 17, 17, 0.78);
-  color: #ffffff;
-  font-size: 0.7rem;
-  font-weight: 700;
-  line-height: 1;
-  z-index: 5;
-  box-shadow: var(--shadow-soft);
-}
-
-.training-modal__close:hover,
-.anime-modal__close:hover,
-.mma-modal__close:hover,
-.music-modal__close:hover,
-.gaming-modal__close:hover {
-  background: rgba(17, 17, 17, 0.92);
-}
-
-.training-modal__close:active,
-.anime-modal__close:active,
-.mma-modal__close:active,
-.music-modal__close:active,
-.gaming-modal__close:active {
-  transform: scale(0.96);
-}
-
-.training-modal__content,
-.anime-modal__content,
-.mma-modal__content,
-.dance-modal__content,
-.music-modal__content,
-.gaming-modal__content,
-.food-modal__content {
-  position: relative;
-  padding: var(--space-4);
-}
-
-.training-modal__dialog,
-.anime-modal__dialog,
-.mma-modal__dialog,
-.dance-modal__dialog,
-.music-modal__dialog,
-.gaming-modal__dialog,
-.food-modal__dialog {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: min(100% - 2 * var(--space-4), 28rem);
-  max-height: calc(100dvh - 2 * var(--space-4));
-  overflow: auto;
-  border-radius: var(--radius-lg);
-  background: var(--color-surface);
+.desktop-nav__link:hover {
   color: var(--color-text);
-  box-shadow: var(--shadow-soft);
 }
 
-.training-modal__eyebrow,
-.anime-modal__eyebrow,
-.mma-modal__eyebrow,
-.dance-modal__eyebrow,
-.music-modal__eyebrow,
-.gaming-modal__eyebrow,
-.food-modal__eyebrow {
-  margin: 0 0 var(--space-2);
-  font-size: var(--text-xs);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-text-muted);
+@media (min-width: 768px) {
+  .site-header__inner {
+    max-width: 56rem;
+    margin: 0 auto;
+  }
+
+  .desktop-nav {
+    display: flex;
+    gap: var(--space-6);
+  }
+
+  .site-header__menu-toggle {
+    display: none;
+  }
 }
 
-.training-modal__title,
-.anime-modal__title,
-.mma-modal__title,
-.dance-modal__title,
-.music-modal__title,
-.gaming-modal__title,
-.food-modal__title {
-  margin: 0 0 var(--space-3);
-  font-size: var(--text-xl);
-}
-
-.training-modal__text,
-.anime-modal__text,
-.mma-modal__text,
-.music-modal__text,
-.gaming-modal__text,
-.dance-modal__text,
-.food-modal__text {
-  margin: 0;
-  color: var(--color-text-muted);
-  line-height: 1.6;
-}
-
-.training-modal__media,
-.anime-modal__media,
-.mma-modal__media,
-.dance-modal__media,
-.music-modal__media,
-.gaming-modal__media,
-.food-modal__media {
-  position: relative;
-  height: 14rem;
-  overflow: hidden;
-  border-top-left-radius: var(--radius-lg);
-  border-top-right-radius: var(--radius-lg);
-}
-
-.training-modal__image,
-.anime-modal__image,
-.mma-modal__image,
-.music-modal__image,
-.gaming-modal__image,
-.dance-modal__image,
-.food-modal__image {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
-}
-
-.music-modal__play {
-  position: absolute;
-  inset: 50% auto auto 50%;
-  transform: translate(-50%, -50%);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 3.5rem;
-  height: 3.5rem;
-  border-radius: var(--radius-pill);
-  background: rgba(17, 17, 17, 0.72);
-  color: var(--color-text-inverse);
-  font-size: 1.25rem;
-  box-shadow: var(--shadow-soft);
+@media (min-width: 1024px) {
+  .site-header__inner {
+    max-width: 64rem;
+  }
 }
 
 .music-player[hidden] {
@@ -450,62 +323,4 @@
 .music-player__volume {
   width: 2.75rem;
   accent-color: var(--color-accent);
-}
-
-.dance-modal__actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-3);
-  margin-top: var(--space-5);
-}
-
-.dance-modal__button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 2.75rem;
-  padding: 0 1rem;
-  border-radius: var(--radius-pill);
-  font-size: var(--text-sm);
-  font-weight: 600;
-}
-
-.dance-modal__button--ghost {
-  border: 1px solid var(--color-border);
-  background: transparent;
-  color: var(--color-text);
-}
-
-.dance-modal__button--primary {
-  background: var(--color-accent);
-  color: var(--color-text-inverse);
-}
-
-.food-modal__actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-3);
-  margin-top: var(--space-5);
-}
-
-.food-modal__button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 2.75rem;
-  padding: 0 1rem;
-  border-radius: var(--radius-pill);
-  font-size: var(--text-sm);
-  font-weight: 600;
-}
-
-.food-modal__button--ghost {
-  border: 1px solid var(--color-border);
-  background: transparent;
-  color: var(--color-text);
-}
-
-.food-modal__button--primary {
-  background: var(--color-accent);
-  color: var(--color-text-inverse);
 }

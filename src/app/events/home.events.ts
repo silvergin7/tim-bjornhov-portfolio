@@ -1,3 +1,15 @@
+import { languageService } from '@/services/language.instance';
+
+const interestEventMap: Record<string, string> = {
+  training: 'show-training-popup',
+  mma: 'show-mma-popup',
+  anime: 'show-anime-popup',
+  dance: 'show-dance-popup',
+  music: 'show-music-popup',
+  gaming: 'show-gaming-popup',
+  food: 'show-food-popup',
+};
+
 export const setupExpandableBlocks = (): void => {
   const extraParagraphs = document.querySelectorAll<HTMLParagraphElement>(
     '.home-section__extra',
@@ -14,22 +26,18 @@ export const setupExpandableBlocks = (): void => {
   toggleButtons.forEach((btn) => {
     btn.addEventListener('click', () => {
       const type = btn.dataset.toggle;
-
-      if (!type) {
-        return;
-      }
+      if (!type) return;
 
       const extra = document.querySelector<HTMLParagraphElement>(
         `.home-section__extra[data-extra="${type}"]`,
       );
-
-      if (!extra) {
-        return;
-      }
+      if (!extra) return;
 
       const isHidden = extra.hidden;
       extra.hidden = !isHidden;
-      btn.textContent = isHidden ? 'Show less' : 'Show more';
+      btn.textContent = isHidden
+        ? languageService.getText('showLess')
+        : languageService.getText('showMore');
     });
   });
 
@@ -40,59 +48,12 @@ export const setupExpandableBlocks = (): void => {
   interestButtons.forEach((btn) => {
     btn.addEventListener('click', () => {
       const interest = btn.dataset.interest;
+      if (!interest) return;
 
-      if (interest === 'training') {
-        const event = new CustomEvent('show-training-popup');
-        window.dispatchEvent(event);
-      }
+      const eventName = interestEventMap[interest];
+      if (!eventName) return;
 
-      if (interest === 'anime') {
-        const event = new CustomEvent('show-anime-popup');
-        window.dispatchEvent(event);
-      }
-
-      if (interest === 'mma') {
-        const event = new CustomEvent('show-mma-popup');
-        window.dispatchEvent(event);
-      }
-
-      if (interest === 'dance') {
-        const href = btn.dataset.href;
-
-        if (!href) {
-          return;
-        }
-
-        const event = new CustomEvent('show-dance-popup', {
-          detail: { href },
-        });
-
-        window.dispatchEvent(event);
-      }
-
-      if (interest === 'music') {
-        const event = new CustomEvent('show-music-popup');
-        window.dispatchEvent(event);
-      }
-
-      if (interest === 'gaming') {
-        const event = new CustomEvent('show-gaming-popup');
-        window.dispatchEvent(event);
-      }
-
-      if (interest === 'food') {
-        const href = btn.dataset.href;
-
-        if (!href) {
-          return;
-        }
-
-        const event = new CustomEvent('show-food-popup', {
-          detail: { href },
-        });
-
-        window.dispatchEvent(event);
-      }
+      window.dispatchEvent(new CustomEvent(eventName));
     });
   });
 };
