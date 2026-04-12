@@ -33,7 +33,6 @@ export const createMusicPlayer = (): string => {
           ✕
         </button>
   
-        <audio data-music-audio src="/audio/moment-of-truth.mp3"></audio>
       </div>
     `;
 };

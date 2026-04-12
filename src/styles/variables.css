@@ -1,5 +1,5 @@
 :root {
-  --color-bg: #f4f1ea;
+  --color-bg: #f0eeeb;
   --color-surface: #ffffff;
   --color-surface-strong: #111111;
   --color-border: rgba(17, 17, 17, 0.1);
@@ -9,7 +9,7 @@
   --color-accent: #1d8f7a;
   --color-accent-hover: #156a5b;
 
-  --color-header-bg: rgba(244, 241, 234, 0.88);
+  --color-header-bg: rgba(240, 238, 235, 0.88);
   --color-toggle-bg: rgba(17, 17, 17, 0.08);
   --color-toggle-line: var(--color-text);
   --color-overlay: rgba(0, 0, 0, 0.36);
