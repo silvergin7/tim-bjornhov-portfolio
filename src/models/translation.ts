@@ -18,24 +18,7 @@ export type TranslationKey =
   | 'externalLinkTitle'
   | 'externalLinkText'
   | 'stayHere'
-  | 'continue'
-  | 'workEyebrow'
-  | 'workTitle'
-  | 'workProjectsTitle'
-  | 'workExperimentTitle'
-  | 'workExperimentText'
-  | 'viewProject'
-  | 'skillsEyebrow'
-  | 'skillsTitle'
-  | 'skillsTechTitle'
-  | 'skillsLearningTitle'
-  | 'skillsEducationTitle'
-  | 'skillsEducationText'
-  | 'contactEyebrow'
-  | 'contactTitle'
-  | 'contactText'
-  | 'contactEmail'
-  | 'contactGithub';
+  | 'continue';
 
 export type TranslationSet = Record<TranslationKey, string>;
 

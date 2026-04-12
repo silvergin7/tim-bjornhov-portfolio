@@ -23,21 +23,3 @@
   letter-spacing: 0.08em;
 }
 
-@media (min-width: 768px) {
-  .site-main {
-    max-width: 56rem;
-    margin: 0 auto;
-    padding: var(--space-12) var(--space-6);
-  }
-
-  .page-section {
-    min-height: auto;
-    padding: var(--space-12) 0;
-  }
-}
-
-@media (min-width: 1024px) {
-  .site-main {
-    max-width: 64rem;
-  }
-}

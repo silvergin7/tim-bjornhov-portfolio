@@ -25,26 +25,6 @@ export const translations: TranslationMap = {
       'This link will open outside of my portfolio site.',
     stayHere: 'Stay here',
     continue: 'Continue',
-    workEyebrow: 'Work',
-    workTitle: 'Projects & Experiments',
-    workProjectsTitle: 'Projects',
-    workExperimentTitle: 'Current Experiment',
-    workExperimentText:
-      'Exploring the intersection of blockchain and community-driven ecosystems.',
-    viewProject: 'View project',
-    skillsEyebrow: 'Skills',
-    skillsTitle: 'Skills & Education',
-    skillsTechTitle: 'Technologies',
-    skillsLearningTitle: 'Currently learning',
-    skillsEducationTitle: 'Education',
-    skillsEducationText:
-      'Studying web development and blockchain at EC Utbildning.',
-    contactEyebrow: 'Contact',
-    contactTitle: 'Get in touch',
-    contactText:
-      'Feel free to reach out if you want to collaborate or just say hello.',
-    contactEmail: 'Email',
-    contactGithub: 'GitHub',
   },
   sv: {
     siteTitle: 'Tim Björnhov | Portfölj',
@@ -70,25 +50,5 @@ export const translations: TranslationMap = {
       'Den här länken öppnas utanför min portföljsida.',
     stayHere: 'Stanna här',
     continue: 'Fortsätt',
-    workEyebrow: 'Arbete',
-    workTitle: 'Projekt & Experiment',
-    workProjectsTitle: 'Projekt',
-    workExperimentTitle: 'Pågående experiment',
-    workExperimentText:
-      'Utforskar skärningspunkten mellan blockchain och community-drivna ekosystem.',
-    viewProject: 'Visa projekt',
-    skillsEyebrow: 'Kompetenser',
-    skillsTitle: 'Kompetenser & Utbildning',
-    skillsTechTitle: 'Tekniker',
-    skillsLearningTitle: 'Lär mig just nu',
-    skillsEducationTitle: 'Utbildning',
-    skillsEducationText:
-      'Studerar webbutveckling och blockchain på EC Utbildning.',
-    contactEyebrow: 'Kontakt',
-    contactTitle: 'Hör av dig',
-    contactText:
-      'Hör gärna av dig om du vill samarbeta eller bara säga hej.',
-    contactEmail: 'E-post',
-    contactGithub: 'GitHub',
   },
 };

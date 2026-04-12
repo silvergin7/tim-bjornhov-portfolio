@@ -8,18 +8,24 @@ export const setupMenuEvents = (): void => {
   const closeButton = document.querySelector(
     '[data-menu-close]',
   ) as HTMLButtonElement | null;
+  const brandButton = document.querySelector(
+    '[data-menu-brand]',
+  ) as HTMLButtonElement | null;
 
-  if (!menu || !openButton || !closeButton) {
+  if (!menu || !openButton) {
     return;
   }
+
+  const closeMenu = (): void => {
+    menu.classList.remove('is-open');
+    openButton.setAttribute('aria-expanded', 'false');
+  };
 
   openButton.addEventListener('click', () => {
     menu.classList.add('is-open');
     openButton.setAttribute('aria-expanded', 'true');
   });
 
-  closeButton.addEventListener('click', () => {
-    menu.classList.remove('is-open');
-    openButton.setAttribute('aria-expanded', 'false');
-  });
+  closeButton?.addEventListener('click', closeMenu);
+  brandButton?.addEventListener('click', closeMenu);
 };

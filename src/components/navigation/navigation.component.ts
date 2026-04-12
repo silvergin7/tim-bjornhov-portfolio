@@ -17,7 +17,7 @@ export const createNavigation = (): string => {
     <aside class="mobile-menu" data-mobile-menu>
       <div class="mobile-menu__inner">
         <div class="mobile-menu__top">
-          <button class="mobile-menu__brand" type="button" aria-label="Tim Björnhov logo">
+          <button class="mobile-menu__brand" type="button" aria-label="Go to home" data-menu-brand>
             <span class="mobile-menu__brand-mark" aria-hidden="true">
               <svg viewBox="0 0 64 64" class="brand-logo" role="img">
                 <path d="M10 16H40" />

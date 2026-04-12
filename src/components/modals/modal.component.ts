@@ -49,7 +49,7 @@ const createModal = (config: ModalConfig): string => {
 
   return `
     <div class="modal" data-modal="${config.key}" hidden>
-      <div class="modal__backdrop" data-modal-close="${config.key}"></div>
+      <div class="modal__backdrop"></div>
       <div
         class="modal__dialog"
         role="dialog"

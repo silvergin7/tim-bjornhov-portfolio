@@ -6,11 +6,9 @@ import '@/styles/modals.css';
 import '@/styles/sections.css';
 
 import { languageService } from '@/services/language.instance';
+import { themeService } from '@/services/theme.instance';
 import { createHeader } from '@/components/header/header.component';
 import { createHomeSection } from '@/sections/home/home.section';
-import { createWorkSection } from '@/sections/work/work.section';
-import { createSkillsSection } from '@/sections/skills/skills.section';
-import { createContactSection } from '@/sections/contact/contact.section';
 import { createExternalLinkModal } from '@/components/modals/external-link.modal';
 import { createAllModals } from '@/components/modals/modal.component';
 import { createMusicPlayer } from '@/components/player/music-player.component';
@@ -32,9 +30,6 @@ const renderApp = (): void => {
     ${createHeader()}
     <main class="site-main">
       ${createHomeSection()}
-      ${createWorkSection()}
-      ${createSkillsSection()}
-      ${createContactSection()}
     </main>
     ${createExternalLinkModal()}
     ${createAllModals(modalConfigs)}
@@ -48,20 +43,27 @@ const renderApp = (): void => {
   setupMusicPlayer();
 };
 
-const setupLanguageToggle = (): void => {
-  const btn = document.querySelector('[data-lang-toggle]');
-  if (!btn) return;
+const setupHeaderToggles = (): void => {
+  const langBtn = document.querySelector('[data-lang-toggle]');
+  const themeBtn = document.querySelector('[data-theme-toggle]');
 
-  btn.addEventListener('click', () => {
+  langBtn?.addEventListener('click', () => {
     languageService.toggleLanguage();
     renderApp();
-    setupLanguageToggle();
+    setupHeaderToggles();
+  });
+
+  themeBtn?.addEventListener('click', () => {
+    themeService.toggleTheme();
+    renderApp();
+    setupHeaderToggles();
   });
 };
 
 const initApp = (): void => {
+  themeService.init();
   renderApp();
-  setupLanguageToggle();
+  setupHeaderToggles();
 };
 
 document.addEventListener('DOMContentLoaded', initApp);
