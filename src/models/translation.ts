@@ -18,7 +18,14 @@ export type TranslationKey =
   | 'externalLinkTitle'
   | 'externalLinkText'
   | 'stayHere'
-  | 'continue';
+  | 'continue'
+  | 'homeProtocolsBridge'
+  | 'tauNetEyebrow'
+  | 'tauNetTitle'
+  | 'tauNetText'
+  | 'bittensorEyebrow'
+  | 'bittensorTitle'
+  | 'bittensorText';
 
 export type TranslationSet = Record<TranslationKey, string>;
 

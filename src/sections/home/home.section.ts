@@ -27,6 +27,17 @@ export const createHomeSection = (): string => {
           <p class="home-section__extra" data-extra="intro">
             ${profile.introLong}
           </p>
+          <p class="home-section__extra home-section__protocols-bridge" data-extra="intro">
+            ${languageService.getText('homeProtocolsBridge')}
+          </p>
+          <div class="home-section__extra home-section__protocols" data-extra="intro">
+            <button class="protocol-icon" type="button" data-interest="tau-net">
+              <img src="/images/Agoras.png" alt="Tau Net / Agoras" />
+            </button>
+            <button class="protocol-icon" type="button" data-interest="bittensor">
+              <img src="/images/Bittensor.png" alt="Bittensor" />
+            </button>
+          </div>
           <button
             class="home-section__toggle"
             type="button"

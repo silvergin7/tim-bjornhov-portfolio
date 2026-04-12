@@ -1,4 +1,4 @@
-import { modalConfigs } from '@/data/modals.data';
+import { getModalConfigs } from '@/data/modals.data';
 
 const openModal = (modal: HTMLElement): void => {
   modal.hidden = false;
@@ -11,7 +11,7 @@ const closeModal = (modal: HTMLElement): void => {
 };
 
 export const setupInterestModals = (): void => {
-  modalConfigs.forEach((config) => {
+  getModalConfigs().forEach((config) => {
     const modal = document.querySelector(
       `[data-modal="${config.key}"]`,
     ) as HTMLDivElement | null;

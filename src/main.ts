@@ -12,7 +12,7 @@ import { createHomeSection } from '@/sections/home/home.section';
 import { createExternalLinkModal } from '@/components/modals/external-link.modal';
 import { createAllModals } from '@/components/modals/modal.component';
 import { createMusicPlayer } from '@/components/player/music-player.component';
-import { modalConfigs } from '@/data/modals.data';
+import { getModalConfigs } from '@/data/modals.data';
 import {
   setupMenuEvents,
   setupExpandableBlocks,
@@ -32,7 +32,7 @@ const renderApp = (): void => {
       ${createHomeSection()}
     </main>
     ${createExternalLinkModal()}
-    ${createAllModals(modalConfigs)}
+    ${createAllModals(getModalConfigs())}
     ${createMusicPlayer()}
   `;
 

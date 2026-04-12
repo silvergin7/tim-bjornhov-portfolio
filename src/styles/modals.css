@@ -71,6 +71,13 @@
   object-position: top center;
 }
 
+[data-modal="tau-net"] .modal__image,
+[data-modal="bittensor"] .modal__image {
+  object-fit: contain;
+  padding: var(--space-4);
+  background: var(--color-surface);
+}
+
 .modal__content {
   position: relative;
   padding: var(--space-4);

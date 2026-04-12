@@ -8,15 +8,17 @@ const interestEventMap: Record<string, string> = {
   music: 'show-music-popup',
   gaming: 'show-gaming-popup',
   food: 'show-food-popup',
+  'tau-net': 'show-tau-net-popup',
+  bittensor: 'show-bittensor-popup',
 };
 
 export const setupExpandableBlocks = (): void => {
-  const extraParagraphs = document.querySelectorAll<HTMLParagraphElement>(
+  const extraElements = document.querySelectorAll<HTMLElement>(
     '.home-section__extra',
   );
 
-  extraParagraphs.forEach((p) => {
-    p.hidden = true;
+  extraElements.forEach((el) => {
+    el.hidden = true;
   });
 
   const toggleButtons = document.querySelectorAll<HTMLButtonElement>(
@@ -28,13 +30,15 @@ export const setupExpandableBlocks = (): void => {
       const type = btn.dataset.toggle;
       if (!type) return;
 
-      const extra = document.querySelector<HTMLParagraphElement>(
+      const extras = document.querySelectorAll<HTMLElement>(
         `.home-section__extra[data-extra="${type}"]`,
       );
-      if (!extra) return;
+      if (extras.length === 0) return;
 
-      const isHidden = extra.hidden;
-      extra.hidden = !isHidden;
+      const isHidden = extras[0].hidden;
+      extras.forEach((el) => {
+        el.hidden = !isHidden;
+      });
       btn.textContent = isHidden
         ? languageService.getText('showLess')
         : languageService.getText('showMore');
@@ -42,7 +46,7 @@ export const setupExpandableBlocks = (): void => {
   });
 
   const interestButtons = document.querySelectorAll<HTMLButtonElement>(
-    '.interest-inline[data-interest]',
+    '[data-interest]',
   );
 
   interestButtons.forEach((btn) => {

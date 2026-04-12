@@ -1,6 +1,7 @@
 import type { ModalConfig } from '@/models/modal';
+import { languageService } from '@/services/language.instance';
 
-export const modalConfigs: ModalConfig[] = [
+export const getModalConfigs = (): ModalConfig[] => [
   {
     key: 'training',
     variant: 'image',
@@ -65,5 +66,25 @@ export const modalConfigs: ModalConfig[] = [
     imageSrc: '/images/taste-of-thailand.png',
     imageAlt: 'Taste of Thailand restaurant image',
     href: 'https://www.tasteofthailand.nu/',
+  },
+  {
+    key: 'tau-net',
+    variant: 'link',
+    eyebrow: languageService.getText('tauNetEyebrow'),
+    title: languageService.getText('tauNetTitle'),
+    text: languageService.getText('tauNetText'),
+    imageSrc: '/images/Agoras.png',
+    imageAlt: 'Tau Net / Agoras protocol logo',
+    href: 'https://tau.net/',
+  },
+  {
+    key: 'bittensor',
+    variant: 'link',
+    eyebrow: languageService.getText('bittensorEyebrow'),
+    title: languageService.getText('bittensorTitle'),
+    text: languageService.getText('bittensorText'),
+    imageSrc: '/images/Bittensor.png',
+    imageAlt: 'Bittensor protocol logo',
+    href: 'https://bittensor.com/',
   },
 ];
