@@ -35,6 +35,8 @@ export const translations: TranslationMap = {
     bittensorTitle: 'Bittensor',
     bittensorText:
       'Bittensor is building a decentralized marketplace for machine intelligence \u2014 often described as \u201cBitcoin for AI.\u201d Instead of mining hashes, participants contribute actual intelligence as a commodity. The network operates through specialized subnets where miners produce computational work, validators evaluate quality, and the Yuma Consensus mechanism ensures honest participation. Subnets already cover language model training, trading intelligence, compute infrastructure, and more. With Dynamic TAO, each subnet has its own token economy driven by market demand. What excites me most is the vision: that the most important digital resource of our time \u2014 artificial intelligence \u2014 should be owned openly and collectively, not controlled by a handful of corporations. Bittensor makes that possible through the same market dynamics that made Bitcoin unstoppable.',
+    workEyebrow: 'Work',
+    workSubtitle: 'A selection of projects I have built',
   },
   sv: {
     siteTitle: 'Tim Björnhov | Portfölj',
@@ -70,5 +72,7 @@ export const translations: TranslationMap = {
     bittensorTitle: 'Bittensor',
     bittensorText:
       'Bittensor bygger en decentraliserad marknadsplats för maskinintelligens \u2014 ofta beskriven som \u201cBitcoin för AI.\u201d Istället för att mina hashvärden bidrar deltagare med faktisk intelligens som en handelsvara. Nätverket fungerar genom specialiserade subnät där miners utför beräkningsarbete, validatorer utvärderar kvalitet och Yuma Consensus-mekanismen säkerställer ärligt deltagande. Subnät täcker redan språkmodellträning, handelsintelligens, beräkningsinfrastruktur och mycket mer. Med Dynamic TAO har varje subnät sin egen tokenekonomi driven av marknadens efterfrågan. Det som fascinerar mig mest är visionen: att vår tids viktigaste digitala resurs \u2014 artificiell intelligens \u2014 ska ägas öppet och kollektivt, inte kontrolleras av en handfull företag. Bittensor gör detta möjligt genom samma marknadsdynamik som gjorde Bitcoin ostoppbart.',
+    workEyebrow: 'Arbete',
+    workSubtitle: 'Ett urval av projekt jag har byggt',
   },
 };

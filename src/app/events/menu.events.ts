@@ -28,4 +28,9 @@ export const setupMenuEvents = (): void => {
 
   closeButton?.addEventListener('click', closeMenu);
   brandButton?.addEventListener('click', closeMenu);
+
+  const navLinks = menu.querySelectorAll<HTMLAnchorElement>('.mobile-nav__link');
+  navLinks.forEach((link) => {
+    link.addEventListener('click', closeMenu);
+  });
 };

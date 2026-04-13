@@ -25,7 +25,9 @@ export type TranslationKey =
   | 'tauNetText'
   | 'bittensorEyebrow'
   | 'bittensorTitle'
-  | 'bittensorText';
+  | 'bittensorText'
+  | 'workEyebrow'
+  | 'workSubtitle';
 
 export type TranslationSet = Record<TranslationKey, string>;
 
