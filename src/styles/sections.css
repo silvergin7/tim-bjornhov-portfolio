@@ -464,11 +464,35 @@
   border-bottom-left-radius: var(--space-1);
 }
 
+.chat__bubble--bot p {
+  margin: 0 0 var(--space-2);
+}
+
+.chat__bubble--bot p:last-child {
+  margin-bottom: 0;
+}
+
 .chat__bubble--user {
   align-self: flex-end;
   background: var(--color-accent);
   color: var(--color-text-inverse);
   border-bottom-right-radius: var(--space-1);
+}
+
+.chat__bubble--typing {
+  font-size: var(--text-base);
+  letter-spacing: 0.2em;
+  animation: typing-pulse 1s ease-in-out infinite;
+}
+
+@keyframes typing-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+.chat__send:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .chat__input-bar {

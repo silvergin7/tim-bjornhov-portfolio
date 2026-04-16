@@ -23,6 +23,7 @@ import {
   setupInterestModals,
   setupMusicPlayer,
   setupChatEvents,
+  resetChatHistory,
 } from '@/app/events';
 
 const app = document.querySelector('#app') as HTMLDivElement;
@@ -92,6 +93,7 @@ const initApp = (): void => {
 document.addEventListener('DOMContentLoaded', initApp);
 
 window.addEventListener('hashchange', () => {
+  resetChatHistory();
   renderApp();
   setupHeaderToggles();
 });

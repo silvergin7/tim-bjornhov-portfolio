@@ -3,15 +3,79 @@ import { languageService } from '@/services/language.instance';
 
 const WEB3FORMS_KEY = 'dbf2d68b-1d0a-4640-b8c8-911dfcda6b64';
 
+type ChatMsg = { role: 'user' | 'bot'; text: string };
+let chatHistory: ChatMsg[] = [];
+
+const escapeHtml = (str: string): string =>
+  str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+const formatBotText = (raw: string): string =>
+  escapeHtml(raw)
+    .split(/\n{2,}/)
+    .map((p) => `<p>${p.replace(/\n/g, '<br>')}</p>`)
+    .join('');
+
 const createBubble = (text: string, role: 'user' | 'bot'): HTMLDivElement => {
   const el = document.createElement('div');
   el.className = `chat__bubble chat__bubble--${role}`;
-  el.textContent = text;
+  if (role === 'bot') {
+    el.innerHTML = formatBotText(text);
+  } else {
+    el.textContent = text;
+  }
   return el;
 };
 
 const scrollToBottom = (container: HTMLElement): void => {
   container.scrollTop = container.scrollHeight;
+};
+
+const streamAiReply = async (
+  bubble: HTMLDivElement,
+  container: HTMLElement,
+): Promise<string> => {
+  const res = await fetch('/api/chat', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      messages: chatHistory,
+      lang: languageService.getLanguage(),
+    }),
+  });
+
+  if (!res.ok || !res.body) throw new Error('AI request failed');
+
+  const reader = res.body.getReader();
+  const decoder = new TextDecoder();
+  let fullText = '';
+  let buffer = '';
+
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+
+    buffer += decoder.decode(value, { stream: true });
+    const parts = buffer.split('\n');
+    buffer = parts.pop() ?? '';
+
+    for (const line of parts) {
+      const trimmed = line.trim();
+      if (!trimmed.startsWith('data: ')) continue;
+      const payload = trimmed.slice(6);
+      if (payload === '[DONE]') continue;
+      try {
+        const parsed = JSON.parse(payload);
+        const token = parsed.response ?? '';
+        if (token) {
+          fullText += token;
+          bubble.innerHTML = formatBotText(fullText);
+          scrollToBottom(container);
+        }
+      } catch { /* incomplete JSON, will be handled in next chunk */ }
+    }
+  }
+
+  return fullText;
 };
 
 const setupCopyButtons = (): void => {
@@ -135,28 +199,54 @@ const setupEmailForm = (): void => {
   });
 };
 
+export const resetChatHistory = (): void => {
+  chatHistory = [];
+};
+
 export const setupChatEvents = (): void => {
   const form = document.querySelector<HTMLFormElement>('[data-chat-form]');
   const input = document.querySelector<HTMLInputElement>('[data-chat-input]');
   const messages = document.querySelector<HTMLDivElement>('[data-chat-messages]');
+  const sendBtn = form?.querySelector<HTMLButtonElement>('.chat__send');
 
   setupCopyButtons();
   setupEmailForm();
 
-  if (!form || !input || !messages) return;
+  if (!form || !input || !messages || !sendBtn) return;
 
-  form.addEventListener('submit', (e) => {
+  let streaming = false;
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    if (streaming) return;
     const text = input.value.trim();
     if (!text) return;
 
+    chatHistory.push({ role: 'user', text });
     messages.appendChild(createBubble(text, 'user'));
     input.value = '';
     scrollToBottom(messages);
 
-    setTimeout(() => {
-      messages.appendChild(createBubble(getFallbackReply(), 'bot'));
-      scrollToBottom(messages);
-    }, 600);
+    const typingBubble = createBubble('...', 'bot');
+    typingBubble.classList.add('chat__bubble--typing');
+    messages.appendChild(typingBubble);
+    scrollToBottom(messages);
+
+    streaming = true;
+    sendBtn.disabled = true;
+
+    try {
+      typingBubble.textContent = '';
+      typingBubble.classList.remove('chat__bubble--typing');
+      const reply = await streamAiReply(typingBubble, messages);
+      chatHistory.push({ role: 'bot', text: reply });
+    } catch {
+      typingBubble.classList.remove('chat__bubble--typing');
+      typingBubble.innerHTML = formatBotText(getFallbackReply());
+      chatHistory.push({ role: 'bot', text: getFallbackReply() });
+    }
+
+    streaming = false;
+    sendBtn.disabled = false;
   });
 };
