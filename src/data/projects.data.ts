@@ -39,6 +39,17 @@ export const getProjects = (): Project[] => {
       repoUrl: 'https://github.com/silvergin7/block-inspector',
     },
     {
+      title: 'The Distributed Ledger',
+      description:
+        lang === 'en'
+          ? 'A static Solana portfolio dashboard built entirely without JavaScript. Features market data, staking overview, governance proposals with voting, and token transfer forms — all crafted with pure HTML and CSS including inline SVG charts.'
+          : 'En statisk Solana-portfoliodashboard byggd helt utan JavaScript. Visar marknadsdata, staking-översikt, governance-förslag med röstning och token-överföringsformulär — allt skapat med ren HTML och CSS inklusive inline SVG-diagram.',
+      tags: ['HTML', 'CSS'],
+      imageSrc: '/images/the-distributed-ledger.png',
+      imageAlt: 'The Distributed Ledger dashboard',
+      repoUrl: 'https://github.com/silvergin7/the-distributed-ledger',
+    },
+    {
       title: 'Member Rewards',
       description:
         lang === 'en'
