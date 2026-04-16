@@ -260,4 +260,143 @@
   border-color: var(--color-text-muted);
 }
 
+/* ── Skills section ──────────────────────────── */
 
+.skills-section__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.skills-section__subtitle {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+
+.skill-group {
+  margin-top: var(--space-10);
+  padding: var(--space-6);
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+}
+
+.skill-group__title {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-xl);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.skill-group__title::after {
+  content: '';
+  width: 2rem;
+  height: 3px;
+  background: var(--color-accent);
+  border-radius: var(--radius-pill);
+}
+
+.skill-group__intro {
+  margin: 0 0 var(--space-4);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* -- Pills variant (Development) -- */
+
+.skill-group__columns {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.skill-group__label {
+  display: block;
+  margin-bottom: var(--space-3);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+}
+
+.skill-group__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.skill-tag {
+  padding: 0.4rem 1rem;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
+}
+
+.skill-tag--outline {
+  background: transparent;
+  border: 1.5px solid var(--color-accent);
+  color: var(--color-accent);
+}
+
+/* -- Narrative variant (Blockchain & Crypto) -- */
+
+.skill-narrative {
+  padding: var(--space-4) var(--space-5);
+  border-left: 3px solid var(--color-accent);
+  margin-bottom: var(--space-4);
+  background: var(--color-btn-subtle);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.skill-narrative:last-child {
+  margin-bottom: 0;
+}
+
+.skill-narrative__label {
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.skill-narrative__text {
+  margin: 0;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  max-width: 62ch;
+}
+
+/* -- Compact variant (Professional Background) -- */
+
+.skill-group__labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.skill-label {
+  padding: 0.45rem 1rem;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border);
+  background: var(--color-btn-subtle);
+  color: var(--color-text-muted);
+}

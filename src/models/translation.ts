@@ -27,7 +27,9 @@ export type TranslationKey =
   | 'bittensorTitle'
   | 'bittensorText'
   | 'workEyebrow'
-  | 'workSubtitle';
+  | 'workSubtitle'
+  | 'skillsEyebrow'
+  | 'skillsSubtitle';
 
 export type TranslationSet = Record<TranslationKey, string>;
 
