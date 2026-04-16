@@ -51,7 +51,9 @@ export type TranslationKey =
   | 'validationRequired'
   | 'validationEmail'
   | 'validationPhone'
-  | 'validationContact';
+  | 'validationContact'
+  | 'experimentBadge'
+  | 'experimentDisclaimer';
 
 export type TranslationSet = Record<TranslationKey, string>;
 

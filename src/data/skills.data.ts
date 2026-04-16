@@ -15,6 +15,7 @@ export const getSkillGroups = (): SkillGroup[] => {
       subgroups: [
         { label: 'Frontend', tags: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React'] },
         { label: 'Backend', tags: ['JavaScript', 'TypeScript', 'Solidity'] },
+        { label: 'AI', tags: ['LLMs', 'Agents', 'Skills'] },
       ],
     },
     {

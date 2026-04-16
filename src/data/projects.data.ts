@@ -1,6 +1,15 @@
 import type { Project } from '@/models/project';
 import { languageService } from '@/services/language.instance';
 
+export type Experiment = {
+  title: string;
+  description: string;
+  tags: string[];
+  chartUrl: string;
+  imageSrc?: string;
+  imageAlt?: string;
+};
+
 export const getProjects = (): Project[] => {
   const lang = languageService.getLanguage();
 
@@ -57,6 +66,25 @@ export const getProjects = (): Project[] => {
           : 'Ett Solidity-smartkontrakt byggt med Foundry som simulerar ett lojalitetssystem. Medlemmar kan tjäna dagliga poäng med 24-timmars cooldown, överföra poäng och lösa in belöningar. Admins kan tilldela poäng, uppdatera belöningskostnader on-chain, avsluta medlemskap och återkalla VIP-status.',
       tags: ['Solidity', 'Foundry', 'Forge'],
       repoUrl: 'https://github.com/silvergin7/Member-Rewards',
+    },
+  ];
+};
+
+export const getExperiments = (): Experiment[] => {
+  const lang = languageService.getLanguage();
+
+  return [
+    {
+      title: 'Swedenium — $SWE',
+      description:
+        lang === 'en'
+          ? 'An experimental Solana token exploring supply and demand mechanics. An open-ended sandbox for testing different implementations and ideas on-chain.'
+          : 'En experimentell Solana-token som utforskar utbuds- och efterfrågemekanik. En öppen sandlåda för att testa olika implementationer och idéer on-chain.',
+      tags: ['Solana'],
+      imageSrc: '/images/Swedenium.png',
+      imageAlt: 'Swedenium token chart',
+      chartUrl:
+        'https://www.dextools.io/app/solana/pair-explorer/6K7hkYmgdDyUn4QbbFeSSxrvvfy2uU65BdKUjWr7qjCp',
     },
   ];
 };

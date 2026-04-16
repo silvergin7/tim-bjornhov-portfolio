@@ -64,6 +64,8 @@ export const translations: TranslationMap = {
     validationEmail: 'Please enter a valid email address',
     validationPhone: 'Only digits, spaces, hyphens and + are allowed',
     validationContact: 'Please enter an email or phone number',
+    experimentBadge: 'Experiment',
+    experimentDisclaimer: 'Early phase — not financial advice. Any involvement is at your own risk.',
   },
   sv: {
     siteTitle: 'Tim Björnhov | Portfölj',
@@ -128,5 +130,7 @@ export const translations: TranslationMap = {
     validationEmail: 'Ange en giltig e-postadress',
     validationPhone: 'Bara siffror, mellanslag, bindestreck och + är tillåtna',
     validationContact: 'Ange en e-post eller ett telefonnummer',
+    experimentBadge: 'Experiment',
+    experimentDisclaimer: 'Tidig fas — inte finansiell rådgivning. All involvering sker på egen risk.',
   },
 };

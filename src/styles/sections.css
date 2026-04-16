@@ -112,7 +112,9 @@
   border: 1px solid var(--color-border);
   box-shadow: var(--shadow-soft);
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .protocol-icon:hover {
@@ -252,12 +254,115 @@
   border-radius: var(--radius-pill);
   color: var(--color-text-muted);
   border: 1px solid var(--color-border);
-  transition: color 0.15s ease, border-color 0.15s ease;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease;
 }
 
 .project-card__repo:hover {
   color: var(--color-text);
   border-color: var(--color-text-muted);
+}
+
+/* ── Experiment card ─────────────────────────── */
+
+.experiment-card {
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  border: 1.5px dashed var(--color-accent);
+  overflow: hidden;
+}
+
+.experiment-card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.experiment-card__logo {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-pill);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.experiment-card__logo--dark {
+  display: none;
+}
+
+[data-theme="dark"] .experiment-card__logo--dark {
+  display: block;
+}
+
+[data-theme="dark"] .experiment-card__logo--light {
+  display: none;
+}
+
+.experiment-card__body {
+  padding: var(--space-3) var(--space-4);
+  flex: 1;
+  min-width: 0;
+}
+
+.experiment-card__badge {
+  display: inline-block;
+  margin-bottom: var(--space-1);
+  padding: 0.15rem 0.5rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
+}
+
+.experiment-card__title {
+  margin: 0 0 var(--space-1);
+  font-size: var(--text-base);
+  line-height: 1.2;
+}
+
+.experiment-card__description {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+}
+
+.experiment-card__disclaimer {
+  margin: var(--space-1) 0 0;
+  font-size: 0.65rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+.experiment-card__footer {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.experiment-card__chart {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--radius-pill);
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.experiment-card__chart:hover {
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
 }
 
 /* ── Skills section ──────────────────────────── */
@@ -486,8 +591,13 @@
 }
 
 @keyframes typing-pulse {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 1; }
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 .chat__send:disabled {
@@ -561,6 +671,15 @@
   align-items: center;
   background: var(--color-surface);
   border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.contact-link-row:hover {
+  border-color: var(--color-border);
+  box-shadow: var(--shadow-soft);
 }
 
 .contact-link {
@@ -623,7 +742,9 @@
   background: var(--color-btn-subtle);
   color: var(--color-text-muted);
   cursor: pointer;
-  transition: color 0.15s ease, border-color 0.15s ease;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease;
 }
 
 .contact-link__copy:hover {
