@@ -29,7 +29,29 @@ export type TranslationKey =
   | 'workEyebrow'
   | 'workSubtitle'
   | 'skillsEyebrow'
-  | 'skillsSubtitle';
+  | 'skillsSubtitle'
+  | 'contactEyebrow'
+  | 'contactSubtitle'
+  | 'contactDisclaimer'
+  | 'chatPlaceholder'
+  | 'chatWelcome'
+  | 'chatFallback'
+  | 'contactEmailLabel'
+  | 'contactPhoneLabel'
+  | 'contactLinkedInLabel'
+  | 'contactGitHubLabel'
+  | 'emailFormName'
+  | 'emailFormEmail'
+  | 'emailFormPhone'
+  | 'emailFormSubject'
+  | 'emailFormMessage'
+  | 'emailFormSend'
+  | 'emailFormSuccess'
+  | 'emailFormError'
+  | 'validationRequired'
+  | 'validationEmail'
+  | 'validationPhone'
+  | 'validationContact';
 
 export type TranslationSet = Record<TranslationKey, string>;
 
