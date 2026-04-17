@@ -7,3 +7,8 @@ export const getNavigationLinks = (): NavLink[] => [
   { label: languageService.getText('navSkills'), href: '#skills' },
   { label: languageService.getText('navContact'), href: '#contact' },
 ];
+
+export const getDesktopNavLinks = (): NavLink[] => [
+  { label: languageService.getText('navAbout'), href: '#about' },
+  { label: languageService.getText('navPortfolio'), href: '#portfolio' },
+];

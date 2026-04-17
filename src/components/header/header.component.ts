@@ -1,4 +1,5 @@
 import { createNavigation } from '@/components/navigation/navigation.component';
+import { getDesktopNavLinks } from '@/data/navigation.data';
 import { languageService } from '@/services/language.instance';
 import { themeService } from '@/services/theme.instance';
 
@@ -28,6 +29,12 @@ export const createHeader = (): string => {
           </span>
           <span class="site-header__brand-text">Tim Björnhov</span>
         </a>
+
+        <nav class="desktop-nav" aria-label="Main navigation">
+          ${getDesktopNavLinks()
+            .map((link) => `<a class="desktop-nav__link" href="${link.href}">${link.label}</a>`)
+            .join('')}
+        </nav>
 
         <div class="site-header__actions">
           <button

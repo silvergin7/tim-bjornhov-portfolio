@@ -15,6 +15,7 @@ export const createContactSection = (): string => {
         <p class="eyebrow">${languageService.getText('contactEyebrow')}</p>
         <p class="contact-section__subtitle">${languageService.getText('contactSubtitle')}</p>
 
+        <div class="contact-section__grid">
         <div class="chat" data-chat>
           <p class="chat__disclaimer">${languageService.getText('contactDisclaimer')}</p>
           <div class="chat__messages" data-chat-messages>
@@ -81,6 +82,7 @@ export const createContactSection = (): string => {
           `
             )
             .join('')}
+        </div>
         </div>
       </div>
     </section>

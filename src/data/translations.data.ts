@@ -7,6 +7,8 @@ export const translations: TranslationMap = {
     navWork: 'Work',
     navSkills: 'Skills',
     navContact: 'Contact',
+    navAbout: 'About',
+    navPortfolio: 'Portfolio',
     homeEyebrow: 'Home',
     homeRole: 'Web Development and Blockchain Student',
     homeIntroShort:
@@ -73,6 +75,8 @@ export const translations: TranslationMap = {
     navWork: 'Arbete',
     navSkills: 'Kompetenser',
     navContact: 'Kontakt',
+    navAbout: 'Om',
+    navPortfolio: 'Portfolio',
     homeEyebrow: 'Hem',
     homeRole: 'Student inom webbutveckling och blockchain',
     homeIntroShort:

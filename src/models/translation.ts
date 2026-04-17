@@ -6,6 +6,8 @@ export type TranslationKey =
   | 'navWork'
   | 'navSkills'
   | 'navContact'
+  | 'navAbout'
+  | 'navPortfolio'
   | 'homeEyebrow'
   | 'homeRole'
   | 'homeIntroShort'

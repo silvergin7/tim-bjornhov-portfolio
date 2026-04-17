@@ -33,8 +33,26 @@ const getRoute = (): string => {
   return hash;
 };
 
+const isDesktop = () => window.matchMedia('(min-width: 64rem)').matches;
+
 const getPageContent = (): string => {
-  switch (getRoute()) {
+  const route = getRoute();
+
+  if (isDesktop()) {
+    switch (route) {
+      case 'portfolio':
+      case 'work':
+      case 'skills':
+        return createWorkSection() + createSkillsSection();
+      case 'about':
+      case 'home':
+      case 'contact':
+      default:
+        return createHomeSection() + createContactSection();
+    }
+  }
+
+  switch (route) {
     case 'work':
       return createWorkSection();
     case 'skills':
@@ -88,6 +106,13 @@ const initApp = (): void => {
   themeService.init();
   renderApp();
   setupHeaderToggles();
+
+  window
+    .matchMedia('(min-width: 64rem)')
+    .addEventListener('change', () => {
+      renderApp();
+      setupHeaderToggles();
+    });
 };
 
 document.addEventListener('DOMContentLoaded', initApp);

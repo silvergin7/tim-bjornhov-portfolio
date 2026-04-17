@@ -149,6 +149,84 @@
   object-position: center top;
 }
 
+@media (min-width: 48rem) {
+  .home-section__inner {
+    display: grid;
+    grid-template-columns: 1fr 18rem;
+    grid-template-rows: auto auto auto auto auto;
+    column-gap: var(--space-8);
+    row-gap: var(--space-4);
+    align-items: start;
+  }
+
+  .home-section .eyebrow {
+    grid-column: 1;
+    grid-row: 1;
+    margin-bottom: 0;
+  }
+
+  .home-section__role {
+    grid-column: 1;
+    grid-row: 2;
+    text-align: left;
+  }
+
+  .home-section__title {
+    grid-column: 1;
+    grid-row: 3;
+    text-align: left;
+    font-size: clamp(2.6rem, 5vw, 4rem);
+  }
+
+  .home-section__portrait {
+    grid-column: 2;
+    grid-row: 1 / -1;
+    align-self: center;
+    margin: 0;
+    width: 100%;
+  }
+
+  .home-section__block {
+    grid-column: 1;
+  }
+}
+
+@media (min-width: 64rem) {
+  .home-section__inner {
+    grid-template-columns: 1fr 24rem;
+    column-gap: 4rem;
+    row-gap: var(--space-3);
+  }
+
+  .home-section .eyebrow {
+    font-size: var(--text-base);
+  }
+
+  .home-section__role {
+    font-size: var(--text-lg);
+  }
+
+  .home-section__title {
+    font-size: 4.5rem;
+    margin-bottom: var(--space-2);
+  }
+
+  .home-section__intro,
+  .home-section__interests {
+    font-size: var(--text-lg);
+    line-height: 1.75;
+  }
+
+  .home-section__extra {
+    font-size: var(--text-base);
+  }
+
+  .home-section__toggle {
+    font-size: var(--text-sm);
+    padding: 0.5rem 1.2rem;
+  }
+}
+
 /* ── Work section ─────────────────────────── */
 
 .work-section__inner {
@@ -365,6 +443,14 @@
   color: var(--color-text-inverse);
 }
 
+@media (min-width: 48rem) {
+  .work-section__projects {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+}
+
 /* ── Skills section ──────────────────────────── */
 
 .skills-section__inner {
@@ -504,6 +590,16 @@
   border: 1px solid var(--color-border);
   background: var(--color-btn-subtle);
   color: var(--color-text-muted);
+}
+
+@media (min-width: 48rem) {
+  .skill-group__columns {
+    flex-direction: row;
+  }
+
+  .skill-group__column {
+    flex: 1;
+  }
 }
 
 /* ── Contact section ─────────────────────────── */
@@ -864,4 +960,21 @@
 
 .email-form__status--error {
   color: #e05252;
+}
+
+@media (min-width: 48rem) {
+  .contact-section__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+    align-items: start;
+  }
+
+  .chat {
+    margin-top: 0;
+  }
+
+  .contact-links {
+    margin-top: 0;
+  }
 }
