@@ -35,6 +35,7 @@ export type TranslationKey =
   | 'contactEyebrow'
   | 'contactSubtitle'
   | 'contactDisclaimer'
+  | 'contactDisclaimerDesktop'
   | 'chatPlaceholder'
   | 'chatWelcome'
   | 'chatFallback'

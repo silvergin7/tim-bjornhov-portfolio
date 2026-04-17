@@ -369,11 +369,11 @@
   display: none;
 }
 
-[data-theme="dark"] .experiment-card__logo--dark {
+[data-theme='dark'] .experiment-card__logo--dark {
   display: block;
 }
 
-[data-theme="dark"] .experiment-card__logo--light {
+[data-theme='dark'] .experiment-card__logo--light {
   display: none;
 }
 
@@ -637,6 +637,20 @@
   color: var(--color-text-muted);
   line-height: 1.5;
   border-bottom: 1px solid var(--color-border);
+}
+
+.chat__disclaimer-variant--desktop {
+  display: none;
+}
+
+@media (min-width: 64rem) {
+  .chat__disclaimer-variant--mobile {
+    display: none;
+  }
+
+  .chat__disclaimer-variant--desktop {
+    display: inline;
+  }
 }
 
 .chat__messages {
@@ -993,5 +1007,9 @@
   .portfolio-layout .skill-narrative {
     margin-bottom: var(--space-3);
     padding: var(--space-3) var(--space-4);
+  }
+
+  .contact-section__grid .chat__messages {
+    min-height: 10rem;
   }
 }

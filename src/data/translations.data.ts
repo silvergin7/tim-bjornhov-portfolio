@@ -45,6 +45,8 @@ export const translations: TranslationMap = {
     contactSubtitle: 'Get in touch',
     contactDisclaimer:
       'The chatbot is experimental and may not be fully accurate. For serious inquiries, please use the contact options below.',
+    contactDisclaimerDesktop:
+      'The chatbot is experimental and may not be fully accurate. For serious inquiries, please use the contact options on the right.',
     chatPlaceholder: 'Ask AI Tim something...',
     chatWelcome:
       'Hey! I\'m an AI version of Tim. Ask me anything about his skills, projects, or background.',
@@ -113,6 +115,8 @@ export const translations: TranslationMap = {
     contactSubtitle: 'Hör av dig',
     contactDisclaimer:
       'Chatboten är experimentell och kanske inte helt korrekt. För seriösa ärenden, använd kontaktalternativen nedan.',
+    contactDisclaimerDesktop:
+      'Chatboten är experimentell och kanske inte helt korrekt. För seriösa ärenden, använd kontaktalternativen till höger.',
     chatPlaceholder: 'Fråga AI-Tim något...',
     chatWelcome:
       'Hej! Jag är en AI-version av Tim. Fråga mig vad som helst om hans kunskaper, projekt eller bakgrund.',

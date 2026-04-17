@@ -17,7 +17,10 @@ export const createContactSection = (): string => {
 
         <div class="contact-section__grid">
         <div class="chat" data-chat>
-          <p class="chat__disclaimer">${languageService.getText('contactDisclaimer')}</p>
+          <p class="chat__disclaimer">
+            <span class="chat__disclaimer-variant chat__disclaimer-variant--mobile">${languageService.getText('contactDisclaimer')}</span>
+            <span class="chat__disclaimer-variant chat__disclaimer-variant--desktop">${languageService.getText('contactDisclaimerDesktop')}</span>
+          </p>
           <div class="chat__messages" data-chat-messages>
             <div class="chat__bubble chat__bubble--bot">${welcome}</div>
           </div>
