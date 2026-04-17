@@ -43,7 +43,7 @@ const getPageContent = (): string => {
       case 'portfolio':
       case 'work':
       case 'skills':
-        return createWorkSection() + createSkillsSection();
+        return `<div class="portfolio-layout">${createWorkSection()}${createSkillsSection()}</div>`;
       case 'about':
       case 'home':
       case 'contact':

@@ -40,6 +40,17 @@
   .page-section + .page-section {
     padding-top: var(--space-12);
   }
+
+  .portfolio-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 20rem;
+    gap: var(--space-12);
+    align-items: start;
+  }
+
+  .portfolio-layout .page-section + .page-section {
+    padding-top: 0;
+  }
 }
 
 #app::before {

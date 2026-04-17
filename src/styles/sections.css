@@ -978,3 +978,20 @@
     margin-top: 0;
   }
 }
+
+@media (min-width: 64rem) {
+  .portfolio-layout .skill-group__columns {
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .portfolio-layout .skill-group {
+    margin-top: 0;
+    padding: var(--space-4);
+  }
+
+  .portfolio-layout .skill-narrative {
+    margin-bottom: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+  }
+}
