@@ -1,38 +1,36 @@
 # Tim Björnhov — Personal Portfolio
 
-A bilingual, single-page personal site showcasing my work, skills, and interests — with an AI chatbot that can answer questions about me directly on the page.
+A personal site in English and Swedish, with an AI chatbot that can answer questions about me. Built as a no-framework TypeScript app, hosted on Cloudflare.
 
 **Live:** [timbjornhov.com](https://timbjornhov.com)
 
 ## Features
 
-- Bilingual interface (English / Swedish) with persistent language preference
-- Dark / light theme toggle
-- Responsive layouts — distinct mobile and desktop experiences
-- AI chatbot powered by Cloudflare Workers AI (Llama 3.3 70B) with streamed responses
+- English and Swedish, with the choice persisted in localStorage
+- Dark and light theme
+- Separate layouts for mobile and desktop
+- AI chatbot backed by Cloudflare Workers AI (Llama 3.3 70B), streamed
 - Contact form via Web3Forms
 - Hash-based client-side routing
-- Embedded music player that persists across navigation
-- Interest modals with rich content (training, gaming, music, food, etc.)
+- Music player that keeps playing as you move between sections
+- Interest modals (training, gaming, music, food, and a few more)
 
 ## Tech stack
 
 - TypeScript, Vite 6
-- Vanilla DOM / template literals (no UI framework)
+- Plain DOM + template literals, no React/Vue/etc.
 - CSS custom properties for theming
 - Cloudflare Pages + Pages Functions
 - Cloudflare Workers AI (`@cf/meta/llama-3.3-70b-instruct-fp8-fast`)
-- Web3Forms (contact form delivery)
+- Web3Forms for the contact form
 
 ## Architecture & design decisions
 
-A few deliberate choices worth noting:
-
-- **Vanilla TypeScript instead of React/Vue/Svelte.** The site has manageable UI complexity and doesn't need virtual-DOM reconciliation. Staying vanilla keeps the production bundle at ~50 KB (16 KB gzipped) and the stack transparent for anyone reviewing the code.
-- **Cloudflare Pages + Workers AI.** A single platform for static hosting, serverless functions, and LLM inference, with a generous free tier. The chat backend runs on Cloudflare's GPU nodes at the edge — no separate ML infrastructure.
-- **Module organization.** Pure, serializable data lives in `src/data/`. Side-effectful logic lives in `src/app/events/` and `src/services/`. Components and sections are rendered as template-literal factories, not classes. This separation keeps each layer easy to reason about.
-- **i18n approach.** A single `languageService` and a `getText(key)` function backed by a translation map in `src/data/translations.data.ts`. Minimal, type-safe, no runtime library.
-- **CORS allowlist on the chat endpoint.** `functions/api/chat.ts` only echoes `Access-Control-Allow-Origin` back to whitelisted origins (production domain, pages.dev fallback, localhost), so other sites can't drain the AI quota by calling the endpoint.
+- **No framework.** I considered React but the site doesn't have enough interactive state to justify it. Sticking with plain TypeScript keeps the bundle around 50 KB (16 KB gzipped) and there's no build magic to explain.
+- **Everything on Cloudflare.** Pages for the static build, Pages Functions for the chat backend, and Workers AI for the LLM. One dashboard, one free tier.
+- **Data vs. behavior.** Data (profile, skills, projects, translations) sits in `src/data/`. Anything that touches the DOM or has side effects lives in `src/app/events/` or `src/services/`. Components are functions that return HTML strings, not classes.
+- **i18n.** A `languageService` singleton plus a big translation map in `src/data/translations.data.ts`. No i18n library — the site is small enough that a typed map does the job.
+- **Locked-down chat endpoint.** The chat API only accepts CORS requests from a short allowlist (production, the pages.dev fallback, localhost). Otherwise anyone could point a fetch at it and burn through the free AI quota.
 
 ## Project structure
 
@@ -64,14 +62,13 @@ npm run dev:cf         # Preview with Cloudflare Pages Functions (requires a pri
 npm run preview        # Vite preview of built output
 ```
 
-For regular frontend work, `npm run dev` is enough. The AI chatbot only responds when running via `npm run dev:cf`, because it depends on the Workers AI binding exposed by Wrangler.
+`npm run dev` is what you want for most things. The chat only works under `npm run dev:cf` since it needs the Workers AI binding from Wrangler — and `dev:cf` serves the last built `dist/`, so run `npm run build` first.
 
 ## Deployment
 
-- Hosted on Cloudflare Pages at [timbjornhov.com](https://timbjornhov.com)
-- Automatic deploy on every push to `main`
-- AI binding (`AI` → Workers AI) configured in the Pages dashboard
-- Custom domain, DNS, and SSL managed via Cloudflare Registrar
+- Pushes to `main` auto-deploy to [timbjornhov.com](https://timbjornhov.com)
+- The `AI` binding is configured in the Pages dashboard (not via `wrangler.toml` — that's dev-only for Pages)
+- Domain, DNS, and SSL all through Cloudflare Registrar
 
 ## License
 
