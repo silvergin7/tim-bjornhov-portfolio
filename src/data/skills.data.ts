@@ -9,8 +9,8 @@ export const getSkillGroups = (): SkillGroup[] => {
       title: 'Development',
       intro:
         lang === 'en'
-          ? 'Fullstack fundamentals with a leaning toward Web3'
-          : 'Fullstack-grunder med en lutning mot Web3',
+          ? 'Fullstack fundamentals with a leaning toward Web3 — comfortable with agile ways of working.'
+          : 'Fullstack-grunder med en lutning mot Web3 — van vid agila arbetssätt.',
       variant: 'pills',
       subgroups: [
         { label: 'Frontend', tags: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React'] },
